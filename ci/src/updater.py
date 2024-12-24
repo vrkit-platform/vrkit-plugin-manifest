@@ -75,7 +75,7 @@ async def batch_plugin_infos(
 
 def remove_unused_etags(plugin_infos: Ps, etags: ETagsType) -> ETagsType:
     etags_updated = {}
-    plugin_ids = [info.get("ID") for info in plugin_infos]
+    plugin_ids = [info.get(id_name) for info in plugin_infos]
 
     for id, tag in etags.items():
 
