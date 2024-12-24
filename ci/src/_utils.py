@@ -15,21 +15,18 @@ plugin_dir = base_dir / "plugins/"
 etag_file = base_dir / "etags.json"
 
 # constants
-id_name = "ID"
-language_name = "Language"
-language_list = ("javascript", "typescript", "javascript_v2", "typescript_v2")
+id_name = "id"
 etag = "ETag"
-version = "Version"
-url_sourcecode = "UrlSourceCode"
-url_download = "UrlDownload"
+version = "version"
+url_sourcecode = "sourceUrl"
+url_download = "downloadUrl"
 url_release = "https://api.github.com/repos/{repo}/releases/latest"
-icon_path = "IcoPath"
-author = "Author"
-description = "Description"
-plugin_name = "Name"
+# icon_path = "IcoPath"
+author = "author"
+plugin_name = "name"
 github_url = "https://github.com"
-release_date = "LatestReleaseDate"
-date_added = "DateAdded"
+release_date = "updatedAt"
+date_added = "createdAt"
 
 # typing
 PluginType = Dict[str, str]

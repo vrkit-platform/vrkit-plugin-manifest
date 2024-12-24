@@ -17,8 +17,9 @@ async def batch_github_plugin_info(
     info: P, tags: ETagsType, github_token=None, webhook_url: str = None
 ) -> P:
     try:
+        overview = info["overview"]
         headers = {"authorization": f"token {github_token}"}
-        if "github.com" not in info[url_download]:
+        if "github.com" not in overview[url_download]:
             return info
 
         url_parts: List[str] = info[url_sourcecode].split("/")
