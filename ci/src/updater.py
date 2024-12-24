@@ -1,8 +1,6 @@
 # -*-coding: utf-8 -*-
 import asyncio
 import aiohttp
-from typing import List
-from unicodedata import name
 from os import getenv
 from sys import argv
 import traceback
@@ -44,8 +42,14 @@ async def batch_github_plugin_info(
 
             assets = latest_rel.get("assets")
 
-            if info.get(release_date, "") != latest_rel.get("published_at"):
-                info[release_date] = latest_rel.get("published_at")
+            published_at = latest_rel.get("published_at")
+
+            if info.get(release_date, "") != published_at:
+                info[release_date] = published_at
+
+            if info.get(date_added, "") == "":
+                info[date_added] = published_at
+
             if assets:
                 overview[url_download] = assets[0]["browser_download_url"]
                 await send_notification(
@@ -77,15 +81,15 @@ def remove_unused_etags(plugin_infos: Ps, etags: ETagsType) -> ETagsType:
     etags_updated = {}
     plugin_ids = [info.get(id_name) for info in plugin_infos]
 
-    for id, tag in etags.items():
+    for plugin_id, tag in etags.items():
 
-        if id not in plugin_ids:
+        if plugin_id not in plugin_ids:
             print(
-                f"Plugin with ID {id} has been removed. The associated ETag will be also removed now."
+                f"Plugin with ID {plugin_id} has been removed. The associated ETag will be also removed now."
             )
             continue
 
-        etags_updated[id] = tag
+        etags_updated[plugin_id] = tag
 
     return etags_updated
 
