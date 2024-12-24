@@ -22,7 +22,7 @@ async def batch_github_plugin_info(
         if "github.com" not in overview[url_download]:
             return info
 
-        url_parts: List[str] = info[url_sourcecode].split("/")
+        url_parts: List[str] = overview[url_sourcecode].split("/")
         if len(url_parts) < 5:
             return info
 
@@ -47,7 +47,7 @@ async def batch_github_plugin_info(
             if info.get(release_date, "") != latest_rel.get("published_at"):
                 info[release_date] = latest_rel.get("published_at")
             if assets:
-                info[url_download] = assets[0]["browser_download_url"]
+                overview[url_download] = assets[0]["browser_download_url"]
                 await send_notification(
                     info, clean(latest_rel["tag_name"], "v"), latest_rel, webhook_url
                 )
