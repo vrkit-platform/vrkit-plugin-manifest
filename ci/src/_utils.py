@@ -1,5 +1,6 @@
 # -*-coding: utf-8 -*-
 import json
+import json5
 from pathlib import Path
 from typing import Dict, List, TypeVar
 import re
@@ -44,7 +45,7 @@ def plugin_reader() -> P:
 
     for plugin_path in plugin_file_paths:
         with open(plugin_path, "r", encoding="utf-8") as f:
-            manifests.append(json.load(f))
+            manifests.append(json5.load(f))
 
     return manifests
 
@@ -56,7 +57,7 @@ def get_plugin_filenames() -> list[str]:
 
 def etag_reader() -> ETagsType:
     with open(etag_file, "r", encoding="utf-8") as f:
-        return json.load(f)
+        return json5.load(f)
 
 
 def plugin_writer(content: P):
@@ -91,7 +92,7 @@ def check_url(url: str) -> bool:
 
 def get_file_plugins_json_info(required_key: str = "") -> list[dict[str, str]]:
     with open("plugins.json", "r", encoding="utf-8") as f:
-        data = json.load(f)
+        data = json5.load(f)
 
     if not required_key:
         return data
