@@ -14,7 +14,7 @@
         "websiteUrl": "https://github.com/vrkit-platform/vrkit-plugin-leaderboard",
         "iconUrl": "https://cdn.jsdelivr.net/gh/vrkit-platform/vrkit-plugin-leaderboard@main/assets/icon.png?raw=true",
         "sourceUrl": "https://github.com/vrkit-platform/vrkit-plugin-leaderboard",
-        "downloadUrl": "https://github.com/vrkit-platform/vrkit-plugin-leaderboard/releases/download/v1.0.0/vrkit-plugin-leaderboard.zip",
+        "downloadUrl": "https://github.com/vrkit-platform/vrkit-plugin-leaderboard/releases/download/v1.0.0/vrkit-plugin-leaderboard.zip"
     },
     "components": [
         {
