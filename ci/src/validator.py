@@ -3,7 +3,7 @@ import uuid
 
 from _utils import (
     check_url, clean, get_file_plugins_json_info, get_plugin_file_paths, get_plugin_filenames,
-    id_name, plugin_reader, url_icon
+    id_name, plugin_reader, url_icon, plugin_name
 )
 
 plugin_infos = plugin_reader()
@@ -33,9 +33,9 @@ def test_file_name_construct():
     filenames = get_plugin_filenames()
     for info in plugin_infos:
         assert (
-                f"{info['Name']}-{info[id_name]}.json" in filenames
-        ), (f"Plugin {info['Name']} with ID {info[id_name]} does not have the correct filename. "
-            f"Make sure it's name + ID, i.e. {info['Name']}-{info[id_name]}.json")
+                f"{info[plugin_name]}-{info[id_name]}.json" in filenames
+        ), (f"Plugin {info[plugin_name]} with ID {info[id_name]} does not have the correct filename. "
+            f"Make sure it's name + ID, i.e. {info[plugin_name]}-{info[id_name]}.json")
 
 
 def test_submitted_plugin_id_is_valid_uuid():
