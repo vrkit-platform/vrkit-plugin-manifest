@@ -1,6 +1,6 @@
 {
     "id": "858a6138-0854-476b-92c1-f1da4a37a48d",
-    "version": "1.0.0",
+    "version": "1.0.2",
     "name": "VRKit Leaderboard",
     "author": {
         "company": "3FV",
@@ -14,7 +14,7 @@
         "websiteUrl": "https://github.com/vrkit-platform/vrkit-plugin-leaderboard",
         "iconUrl": "https://cdn.jsdelivr.net/gh/vrkit-platform/vrkit-plugin-leaderboard@main/assets/icon.png?raw=true",
         "sourceUrl": "https://github.com/vrkit-platform/vrkit-plugin-leaderboard",
-        "downloadUrl": "https://github.com/vrkit-platform/vrkit-plugin-leaderboard/releases/download/v1.0.0/VRKit-Leaderboard-1.0.0.zip"
+        "downloadUrl": "https://github.com/vrkit-platform/vrkit-plugin-leaderboard/releases/download/v1.0.2/VRKit-Leaderboard-1.0.2.zip"
     },
     "components": [
         {
@@ -90,6 +90,6 @@
             }
         }
     ],
-    "updatedAt": "2024-12-24T18:01:35Z",
+    "updatedAt": "2024-12-25T00:09:56Z",
     "createdAt": "2024-12-24T18:01:35Z"
 }
