@@ -3,7 +3,6 @@
     "version": "1.0.9",
     "name": "VRKit Leaderboard",
     "description": "A configurable leaderboard overlay",
-    
     "author": {
         "company": "3FV",
         "name": "Jonathan Glanz",
