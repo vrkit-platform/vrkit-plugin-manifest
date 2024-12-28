@@ -29,7 +29,7 @@ async def update_plugin_manifest(session, info) -> dict:
     if new_info[id_name] != info[id_name]:
         raise Exception(f"ID mismatch in new/old manifest for {info[plugin_name]} (current={info[id_name]},new={new_info[id_name]})")
 
-    for key, value in ["author", "overview", "components", "name", "description"]:
+    for key in ["author", "overview", "components", "name", "description"]:
         info[key] = new_info[key]
 
     return info
