@@ -2,17 +2,21 @@
     "id": "858a6138-0854-476b-92c1-f1da4a37a48d",
     "version": "1.0.9",
     "name": "VRKit Leaderboard",
+    "description": "A configurable leaderboard overlay",
+    
     "author": {
         "company": "3FV",
         "name": "Jonathan Glanz",
         "email": "support@3form.ventures"
     },
     "overview": {
-        "featureContent": "A real time, configurable leaderboard overlay",
+        "content": "A real time, configurable leaderboard overlay",
+        "featureContent": "",
         "changeLogContent": "v1.0.0\n- initial release",
         "screenshots": [],
+        "manifestUrl": "https://raw.githubusercontent.com/vrkit-platform/vrkit-plugin-leaderboard/refs/heads/master/plugin.json5",
         "websiteUrl": "https://github.com/vrkit-platform/vrkit-plugin-leaderboard",
-        "iconUrl": "https://cdn.jsdelivr.net/gh/vrkit-platform/vrkit-plugin-leaderboard@main/assets/icon.png?raw=true",
+        "iconUrl": "https://cdn.jsdelivr.net/gh/vrkit-platform/vrkit-plugin-leaderboard@master/assets/icon.png?raw=true",
         "sourceUrl": "https://github.com/vrkit-platform/vrkit-plugin-leaderboard",
         "downloadUrl": "https://github.com/vrkit-platform/vrkit-plugin-leaderboard/releases/download/v1.0.9/VRKit-Leaderboard-1.0.9.zip"
     },
@@ -26,6 +30,7 @@
                 "IRACING"
             ],
             "overview": {
+                "content": "A real time, configurable leaderboard overlay",
                 "featureContent": "- Multiclass support\n- Configurable colors\n- More to come ...",
                 "changeLogContent": "### 1.0.0\n\n- Initial release",
                 "screenshots": []

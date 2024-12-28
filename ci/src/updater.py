@@ -1,4 +1,6 @@
 # -*-coding: utf-8 -*-
+import json5
+import validators
 import asyncio
 import aiohttp
 from os import getenv
@@ -9,6 +11,28 @@ from tqdm.asyncio import tqdm
 
 from _utils import *
 from discord import update_hook
+
+
+async def update_plugin_manifest(session, info) -> dict:
+    manifest_url = info["overview"]["manifestUrl"]
+    if not validators.url(manifest_url):
+        print(f"No manifest URL found for {info[plugin_name]}")
+        return info
+
+    res = await session.get(manifest_url)
+    if res.status in (403, 304):
+        print(f"Error code={res.status} when fetching manifest for {info[plugin_name]}")
+        return info
+
+    info_text = await res.text("utf-8")
+    new_info = json5.loads(info_text)
+    if new_info[id_name] != info[id_name]:
+        raise Exception(f"ID mismatch in new/old manifest for {info[plugin_name]} (current={info[id_name]},new={new_info[id_name]})")
+
+    for key, value in ["author", "overview", "components", "name", "description"]:
+        info[key] = new_info[key]
+
+    return info
 
 
 async def batch_github_plugin_info(
@@ -41,6 +65,11 @@ async def batch_github_plugin_info(
             latest_rel = await res.json()
 
             assets = latest_rel.get("assets")
+            if assets is None:
+                raise Exception(f"No assets found in the latest release ({info['name']})")
+
+            info = await update_plugin_manifest(session, info)
+            overview = info["overview"]
 
             published_at = latest_rel.get("published_at")
 
@@ -50,12 +79,12 @@ async def batch_github_plugin_info(
             if info.get(date_added, "") == "":
                 info[date_added] = published_at
 
-            if assets:
-                overview[url_download] = assets[0]["browser_download_url"]
-                await send_notification(
-                    info, clean(latest_rel["tag_name"], "v"), latest_rel, webhook_url
-                )
-                info[version] = clean(latest_rel["tag_name"], "v")
+            overview[url_download] = assets[0]["browser_download_url"]
+
+            await send_notification(
+                info, clean(latest_rel["tag_name"], "v"), latest_rel, webhook_url
+            )
+            info[version] = clean(latest_rel["tag_name"], "v")
 
             tags[info[id_name]] = res.headers.get(etag, "")
 
