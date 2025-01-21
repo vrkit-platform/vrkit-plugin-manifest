@@ -1,7 +1,7 @@
 [
     {
         "id": "858a6138-0854-476b-92c1-f1da4a37a48d",
-        "version": "1.0.12",
+        "version": "1.0.16",
         "name": "VRKit Leaderboard",
         "description": "A configurable leaderboard overlay",
         "author": {
@@ -18,7 +18,7 @@
             "websiteUrl": "https://github.com/vrkit-platform/vrkit-plugin-leaderboard",
             "iconUrl": "https://cdn.jsdelivr.net/gh/vrkit-platform/vrkit-plugin-leaderboard@master/assets/icon.png?raw=true",
             "sourceUrl": "https://github.com/vrkit-platform/vrkit-plugin-leaderboard",
-            "downloadUrl": "https://github.com/vrkit-platform/vrkit-plugin-leaderboard/releases/download/v1.0.12/VRKit-Leaderboard-1.0.12.zip"
+            "downloadUrl": "https://github.com/vrkit-platform/vrkit-plugin-leaderboard/releases/download/v1.0.16/VRKit-Leaderboard-1.0.16.zip"
         },
         "components": [
             {
@@ -42,40 +42,28 @@
                     }
                 },
                 "userSettings": {
-                    "car.player": {
-                        "id": "car.player",
-                        "name": "Player color",
-                        "description": "Color of the dot representing you, the player on the map",
-                        "type": "COLOR",
+                    "view.mode": {
+                        "id": "view.mode",
+                        "name": "View Mode",
+                        "description": "View either race standings or relative",
+                        "type": "CHOICE",
+                        "choiceLimit": 1,
+                        "choices": [
+                            {
+                                "value": "RELATIVE",
+                                "label": "Relative",
+                                "description": "View leaderboard relative to the active player."
+                            },
+                            {
+                                "value": "STANDINGS",
+                                "label": "Standings",
+                                "description": "View overall leaderboard."
+                            }
+                        ],
                         "defaultValue": {
-                            "colorValue": "#FF0000"
-                        }
-                    },
-                    "car.class1": {
-                        "id": "car.class1",
-                        "name": "Class 1 color",
-                        "description": "Color the top car class in the race (dots)",
-                        "type": "COLOR",
-                        "defaultValue": {
-                            "colorValue": "#00FF00"
-                        }
-                    },
-                    "car.class2": {
-                        "id": "car.class2",
-                        "name": "Class 2 color",
-                        "description": "Color the 2nd car class in the race (dots)",
-                        "type": "COLOR",
-                        "defaultValue": {
-                            "colorValue": "#00FFFF"
-                        }
-                    },
-                    "car.class3": {
-                        "id": "car.class3",
-                        "name": "Class 1 color",
-                        "description": "Color the 3rd car class in the race (dots)",
-                        "type": "COLOR",
-                        "defaultValue": {
-                            "colorValue": "#0000FF"
+                            "choiceValues": [
+                                "STANDINGS"
+                            ]
                         }
                     }
                 },
@@ -106,7 +94,7 @@
                         "SessionLapsRemain",
                         "SessionLapsRemainEx",
                         "SessionNum",
-                        "AppSessionState",
+                        "SessionState",
                         "SessionTick",
                         "SessionTime",
                         "SessionTimeOfDay",
@@ -115,12 +103,12 @@
                         "CarIdxEstTime",
                         "CarIdxClassPosition",
                         "CarIdxF2Time",
-                        "CarIdxGear",
+                        "CarIdxPosition",
                         "CarIdxLap",
                         "CarIdxLapCompleted",
                         "CarIdxLapDistPct",
+                        "CarIdxGear",
                         "CarIdxOnPitRoad",
-                        "CarIdxPosition",
                         "CarIdxRPM",
                         "CarIdxSteer",
                         "CarIdxTrackSurface",
@@ -129,6 +117,7 @@
                         "CarIdxBestLapTime",
                         "CarIdxBestLapNum",
                         "PaceMode",
+                        "Lap",
                         "Lat",
                         "Lon",
                         "CarIdxPaceLine",
@@ -139,7 +128,7 @@
                 }
             }
         ],
-        "updatedAt": "2024-12-29T02:11:07Z",
+        "updatedAt": "2025-01-21T20:42:32Z",
         "createdAt": "2024-12-24T18:01:35Z"
     }
 ]
